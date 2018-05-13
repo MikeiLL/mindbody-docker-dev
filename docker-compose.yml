@@ -5,18 +5,19 @@ services:
     image: "chriszarate/wordpress:4.9.1"
     environment:
       VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN}"
-      WORDPRESS_ACTIVATE_PLUGINS: "my-plugin" # plugin folder relative to /wp-content/plugins/
+      WORDPRESS_ACTIVATE_PLUGINS: "mz-mindbody-api" # plugin folder relative to /wp-content/plugins/
       WORDPRESS_ACTIVATE_THEME: ""   # theme folder relative to /wp-content/themes/
-      WORDPRESS_SITE_TITLE: "Project"
+      WORDPRESS_SITE_TITLE: "MZ MBO Plugin Test"
       WORDPRESS_SITE_URL: "http://${DOCKER_DEV_DOMAIN}"
-      XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug"
+      XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug profiler_enable=1 profiler_output_name=%R.%t.out"
     depends_on:
       - "mysql"
     networks:
       - "front"
       - "back"
     volumes:
-      - ".:/var/www/html/wp-content/plugins/my-plugin"
+      - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api"
+      - "./wp-content:/tmp/wordpress/init-wp-content"
   mysql:
     image: "mariadb:10.2"
     environment:
@@ -25,6 +26,8 @@ services:
       MYSQL_ROOT_PASSWORD: ""
     networks:
       - "back"
+    volumes:
+      - "./data:/var/lib/mysql"
   proxy:
     image: "jwilder/nginx-proxy:alpine"
     ports:
