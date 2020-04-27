@@ -17,6 +17,7 @@ services:
       - "back"
     volumes:
       - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api"
+      - "./mbo-test:/var/www/html/wp-content/plugins/mbo-test"
       - "./wp-content:/tmp/wordpress/init-wp-content"
   mysql:
     image: "mariadb:10.2"
