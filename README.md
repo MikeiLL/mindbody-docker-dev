@@ -93,7 +93,12 @@ docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit /app/bin
 Now you are ready to run PHPUnit. Repeat this command as necessary:
 
 ```sh
-docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit
+docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit 
+```
+
+Individual test suites specified with --testsuite flag:
+```sh
+docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit --testsuite [Main, Assets, etc] 
 ```
 
 

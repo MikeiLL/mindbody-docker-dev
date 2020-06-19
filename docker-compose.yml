@@ -18,6 +18,7 @@ services:
       - "wp:/var/www/html:rw"
       - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api:ro"
       - "./mz-mbo-access:/var/www/html/wp-content/plugins/mz-mbo-access:ro"
+      - "./mz_mbo_arbitrary.log:/var/www/html/wp-content/mz_mbo_arbitrary.log:rw"
       - "./wp-content:/tmp/wordpress/init-wp-content"
   wp-cli:
     image: "wordpress:cli-${WP_CLI_VERSION:-2.2.0}-php${PHP_VERSION:-7.3}"
