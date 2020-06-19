@@ -5,6 +5,7 @@ services:
     image: "chriszarate/wordpress-phpunit:6.0.6"
     volumes:
       - "./mz-mindbody-api:/app"
+      - "./mz-mbo-access:/appTwo"
       - "testsuite:/tmp"
   mysql_phpunit:
     image: "mariadb:10.2"
