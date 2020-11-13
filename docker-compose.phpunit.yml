@@ -6,6 +6,7 @@ services:
     volumes:
       - "./mz-mindbody-api:/app"
       - "./mz-mbo-access:/appTwo"
+      - "./elliptica-on-demand:/appThree"
       - "testsuite:/tmp"
   mysql_phpunit:
     image: "mariadb:10.2"

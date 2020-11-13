@@ -2,7 +2,7 @@ version: "3"
 
 services:
   wordpress:
-    image: "wordpress:${WP_VERSION:-5.2.1}-php${PHP_VERSION:-7.3}-apache"
+    image: "wordpress:${WP_VERSION:-5.5.1}-php${PHP_VERSION:-7.3}-apache"
     environment:
       VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN:-project.test}"
       WORDPRESS_DB_HOST: "mysql"
@@ -18,10 +18,12 @@ services:
       - "wp:/var/www/html:rw"
       - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api:ro"
       - "./mz-mbo-access:/var/www/html/wp-content/plugins/mz-mbo-access:ro"
+      - "./mbo-sandbox:/var/www/html/wp-content/plugins/mbo-sandbox:ro"
+      - "./advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro:ro"
       - "./mz_mbo_arbitrary.log:/var/www/html/wp-content/mz_mbo_arbitrary.log:rw"
       - "./wp-content:/tmp/wordpress/init-wp-content"
   wp-cli:
-    image: "wordpress:cli-${WP_CLI_VERSION:-2.2.0}-php${PHP_VERSION:-7.3}"
+    image: "wordpress:cli-${WP_CLI_VERSION:-2.4.0}-php${PHP_VERSION:-7.3}"
     environment:
       - APACHE_RUN_USER="www-data"
       - APACHE_RUN_GROUP="www-data"

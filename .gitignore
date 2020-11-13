@@ -1,8 +1,10 @@
 mz-mindbody-api
+.env
 mz-mbo-access
-DS_Store
+.DS_Store
 mz-mbo-pages
 *.log
 data
 *.zip
 .idea
+advanced-custom-fields-pro
