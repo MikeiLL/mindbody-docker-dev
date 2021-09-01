@@ -2,7 +2,7 @@ version: "3"
 
 services:
   wordpress:
-    image: "wordpress:${WP_VERSION:-5.5.1}-php${PHP_VERSION:-7.3}-apache"
+    build: .
     environment:
       VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN:-project.test}"
       WORDPRESS_DB_HOST: "mysql"
@@ -45,7 +45,7 @@ services:
       - "back"
     volumes:
       - "./data:/var/lib/mysql"
-      
+
   proxy:
     image: "jwilder/nginx-proxy:alpine"
     ports:
