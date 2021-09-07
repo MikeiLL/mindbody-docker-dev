@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "php",
+      "request": "launch",
+      "name": "xDebug listen",
+      "port": 9003,
+      "url": "http://mzmbo.test",
+      "stopOnEntry": false,
+      "pathMappings": {
+        "/var/www/html/info.php": "${workspaceRoot}/info.php",
+        "/var/www/html/wp-content/plugins/mz-mindbody-api/": "${workspaceRoot}/mz-mindbody-api/",
+        "/var/www/html/wp-content/plugins/mz-mbo-access/": "${workspaceRoot}/mz-mbo-access/"
+      }
+    }
+  ]
+}

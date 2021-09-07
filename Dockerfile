@@ -6,7 +6,8 @@ RUN apt-get update -y \
       vim \
   && apt-get clean -y \
   && docker-php-ext-install soap  \
-  && docker-php-ext-enable soap
+  && docker-php-ext-enable soap \
+  && pecl install xdebug \
+  && docker-php-ext-enable xdebug
 
-# Replace php.ini
-# COPY php.ini /usr/local/etc/php
+COPY docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d
