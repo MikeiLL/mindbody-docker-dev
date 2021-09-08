@@ -22,6 +22,9 @@ services:
       - "./advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro:ro"
       - "./mz_mbo_arbitrary.log:/var/www/html/wp-content/mz_mbo_arbitrary.log:rw"
       - "./wp-content:/tmp/wordpress/init-wp-content"
+      - "./info.php:/info.php"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   wp-cli:
     image: "wordpress:cli-${WP_CLI_VERSION:-2.4.0}-php${PHP_VERSION:-7.3}"
     environment:
