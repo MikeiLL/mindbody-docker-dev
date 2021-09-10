@@ -3,13 +3,14 @@ show-hooks
 mindbody-access-management
 query-monitor
 debug-bar
-debug-bar-filters-actions-addon
+debug-bar-actions-and-filters-addon
 wp
 .env
 mz-mbo-access
 .DS_Store
 mz-mbo-pages
 *.log
+*.sql
 data
 *.zip
 .idea
