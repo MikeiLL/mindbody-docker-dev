@@ -1,4 +1,4 @@
-FROM "wordpress:${WP_VERSION:-5.5.1}-php${PHP_VERSION:-7.3}-apache"
+FROM "wordpress:${WP_VERSION:-5.5.1}-php${PHP_VERSION:-7.4}-apache"
 
 RUN apt-get update -y \
   && apt-get install -y \
