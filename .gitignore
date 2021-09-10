@@ -1,4 +1,10 @@
 mz-mindbody-api
+show-hooks
+mindbody-access-management
+query-monitor
+debug-bar
+debug-bar-filters-actions-addon
+wp
 .env
 mz-mbo-access
 .DS_Store

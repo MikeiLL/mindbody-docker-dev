@@ -14,7 +14,8 @@
       "pathMappings": {
         "/var/www/html/info.php": "${workspaceRoot}/info.php",
         "/var/www/html/wp-content/plugins/mz-mindbody-api/": "${workspaceRoot}/mz-mindbody-api/",
-        "/var/www/html/wp-content/plugins/mz-mbo-access/": "${workspaceRoot}/mz-mbo-access/"
+        "/var/www/html/wp-content/plugins/mz-mbo-access/": "${workspaceRoot}/mz-mbo-access/",
+        "/var/www/html/": "${workspaceRoot}/wp/"
       }
     }
   ]

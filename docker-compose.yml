@@ -9,6 +9,8 @@ services:
       WORDPRESS_DB_NAME: "wordpress"
       WORDPRESS_DB_PASSWORD: ""
       WORDPRESS_DB_USER: "root"
+      WORDPRESS_DEBUG: "${WORDPRESS_DEBUG:-false}"
+      WORDPRESS_CONFIG_EXTRA: "${WORDPRESS_CONFIG_EXTRA:-''}"
     depends_on:
       - "mysql"
     networks:
@@ -17,9 +19,13 @@ services:
     volumes:
       - "wp:/var/www/html:rw"
       - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api:ro"
-      - "./mz-mbo-access:/var/www/html/wp-content/plugins/mz-mbo-access:ro"
+      - "./mindbody-access-management:/var/www/html/wp-content/plugins/mindbody-access-management:ro"
       - "./mbo-sandbox:/var/www/html/wp-content/plugins/mbo-sandbox:ro"
       - "./advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro:ro"
+      - "./debug-bar-actions-and-filters-addon:/var/www/html/wp-content/plugins/debug-bar-actions-and-filters-addon:ro"
+      - "./debug-bar:/var/www/html/wp-content/plugins/debug-bar:ro"
+      - "./show-hooks:/var/www/html/wp-content/plugins/show-hooks:ro"
+      - "./query-monitor:/var/www/html/wp-content/plugins/query-monitor:ro"
       - "./mz_mbo_arbitrary.log:/var/www/html/wp-content/mz_mbo_arbitrary.log:rw"
       - "./wp-content:/tmp/wordpress/init-wp-content"
       - "./info.php:/info.php"
