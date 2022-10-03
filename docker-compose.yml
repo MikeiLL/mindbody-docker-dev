@@ -27,7 +27,6 @@ services:
       - "./show-hooks:/var/www/html/wp-content/plugins/show-hooks:ro"
       - "./query-monitor:/var/www/html/wp-content/plugins/query-monitor:ro"
       - "./mz_mbo_arbitrary.log:/var/www/html/wp-content/mz_mbo_arbitrary.log:rw"
-      - "./wp-content:/tmp/wordpress/init-wp-content"
       - "./info.php:/info.php"
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -52,8 +51,6 @@ services:
       MYSQL_ROOT_PASSWORD: ""
     networks:
       - "back"
-    volumes:
-      - "./data:/var/lib/mysql"
 
   proxy:
     image: "jwilder/nginx-proxy:alpine"

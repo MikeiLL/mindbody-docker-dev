@@ -4,7 +4,7 @@ services:
   wordpress_phpunit:
     image: "chriszarate/wordpress-phpunit:6.0.6"
     volumes:
-      - "./mz-mindbody-api:/app"
+      - ".:/app"
       - "./mz-mbo-access:/appTwo"
       - "./elliptica-on-demand:/appThree"
       - "testsuite:/tmp"
