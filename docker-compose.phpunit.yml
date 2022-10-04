@@ -2,20 +2,27 @@ version: '3.1'
 
 services:
 
-  wordpress:
+  wp_phpunit:
     build:
       context: .
       dockerfile: Dockerfile-phpunit
     restart: always
     ports:
       - 8080:80
+    depends_on:
+      - db
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
+      WP_PLUGIN_FOLDER: my-plugin
     volumes:
       - "./my-plugin:/var/www/html/wp-content/plugins/my-plugin"
+      - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api"
+      - "./phpunit.xml.dist:/var/www/html/phpunit.xml.dist"
+      - "./bootstrap.php:/var/www/html/bootstrap.php"
+      - "./bin:/var/www/html/bin"
 
   db:
     image: mariadb:10.2
@@ -29,5 +36,5 @@ services:
       - db:/var/lib/mysql
 
 volumes:
-  wordpress:
+  wp_phpunit:
   db:

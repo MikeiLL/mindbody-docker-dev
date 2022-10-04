@@ -14,8 +14,8 @@ RUN apt-get update \
 #3. Create the files for the testing environment
 RUN \
     #3.1 Install phpunit
-    curl -L https://phar.phpunit.de/phpunit-7.phar -o /tmp/phpunit \
-    && chmod a+x /tmp/phpunit \
+    curl -L https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit \
+    && chmod a+x /usr/local/bin/phpunit \
     #3.2 Install wordpress
     && cp -r /usr/src/wordpress /tmp/wordpress \
     && curl https://raw.github.com/markoheijnen/wp-mysqli/master/db.php -o /tmp/wordpress/wp-content/db.php \
@@ -28,7 +28,7 @@ RUN \
 
 #4. Copy the script to create the testing environment when the container is started
 COPY init-testing-environment.sh /usr/local/bin/
-RUN echo "Ran, homies."
+
 #5. Run the script and send as an argument the command to run the apache service
 ENTRYPOINT ["init-testing-environment.sh"]
 CMD ["apache2-foreground"]
