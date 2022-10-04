@@ -1,19 +1,33 @@
-version: "3"
+version: '3.1'
 
 services:
-  wordpress_phpunit:
-    image: "chriszarate/wordpress-phpunit:6.0.6"
-    volumes:
-      - ".:/app"
-      - "./mz-mbo-access:/appTwo"
-      - "./elliptica-on-demand:/appThree"
-      - "testsuite:/tmp"
-  mysql_phpunit:
-    image: "mariadb:10.2"
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile-phpunit
+    restart: always
+    ports:
+      - 8080:80
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "wordpress_test"
-      MYSQL_ROOT_PASSWORD: ""
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - "./my-plugin:/var/www/html/wp-content/plugins/my-plugin"
+
+  db:
+    image: mariadb:10.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
 
 volumes:
-  testsuite: {}
+  wordpress:
+  db:
