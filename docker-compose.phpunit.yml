@@ -16,10 +16,10 @@ services:
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
-      WP_PLUGIN_FOLDER: my-plugin
+      WORDPRESS_DEBUG: "FALSE"
     volumes:
-      - "./my-plugin:/var/www/html/wp-content/plugins/my-plugin"
       - "./mz-mindbody-api:/var/www/html/wp-content/plugins/mz-mindbody-api"
+      - "./mindbody-access-management:/var/www/html/wp-content/plugins/mindbody-access-management"
       - "./phpunit.xml.dist:/var/www/html/phpunit.xml.dist"
       - "./bootstrap.php:/var/www/html/bootstrap.php"
       - "./bin:/var/www/html/bin"
