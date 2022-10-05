@@ -101,7 +101,7 @@ docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit
 Individual test suites (from phpunit.xml.dist) specified with --testsuite flag:
 
 ```sh
-docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit --testsuite [Main, Assets, etc]
+docker-compose -f docker-compose.phpunit.yml run --rm wp_phpunit phpunit --testsuite [Main, Access, etc]
 ```
 
 ## Changing the hostname
