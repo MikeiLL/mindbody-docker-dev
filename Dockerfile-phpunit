@@ -14,7 +14,7 @@ RUN apt-get update \
 #3. Create the files for the testing environment
 RUN \
     #3.1 Install phpunit
-    curl -L https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit \
+    curl -L https://phar.phpunit.de/phpunit-9.5.phar -o /usr/local/bin/phpunit \
     && chmod a+x /usr/local/bin/phpunit \
     #3.2 Install wordpress
     && cp -r /usr/src/wordpress /tmp/wordpress \
