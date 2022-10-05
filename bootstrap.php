@@ -28,10 +28,13 @@ require_once "{$_tests_dir}/includes/functions.php";
 /**
  * Manually load the plugin being tested.
  */
-function _manually_load_plugins() {
-	require dirname( __FILE__ ) . '/wp-content/plugins/my-plugin/my-plugin.php';
-	require dirname( __FILE__ ) . '/wp-content/plugins/mz-mindbody-api/mz-mindbody.php';
+if (!function_exists("_manually_load_plugins")) {
+	function _manually_load_plugins() {
+		require dirname( __FILE__ ) . '/wp-content/plugins/mz-mindbody-api/mz-mindbody.php';
+		require dirname( __FILE__ ) . '/wp-content/plugins/mindbody-access-management/mz-mbo-access.php';
+	}
 }
+
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugins' );
 

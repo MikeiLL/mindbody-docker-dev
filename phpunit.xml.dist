@@ -7,12 +7,13 @@
 	convertWarningsToExceptions="true"
 	>
 	<testsuites>
-		<testsuite name="Demo">
-			<directory prefix="test-" suffix=".php">wp-content/plugins/my-plugin</directory>
-		</testsuite>
 		<testsuite name="Main">
 			<directory prefix="test-" suffix=".php">wp-content/plugins/mz-mindbody-api</directory>
 			<exclude>wp-content/plugins/mz-mindbody-api/tests/test-sample.php</exclude>
+		</testsuite>
+		<testsuite name="Access">
+			<directory prefix="test-" suffix=".php">wp-content/plugins/mindbody-access-management</directory>
+			<exclude>wp-content/plugins/mindbody-access-management/tests/test-sample.php</exclude>
 		</testsuite>
 	</testsuites>
 </phpunit>
